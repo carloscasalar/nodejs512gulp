@@ -3,12 +3,15 @@ FROM node:5.12
 # Install gulp globally
 RUN npm install gulp -g
 
-# Create an unprivilegied user
-RUN groupadd -r app && useradd -r -g app app 
+# Create an app directory
+RUN mkdir /app
 
-# Exposed 3000
+# This directory is used by npm. It is not exposed.
+RUN mkdir /.npm
+RUN chmod 777 /.npm
+
+# Exposed port 3000 (common default for express apps) and app directory
 EXPOSE 3000
-
-WORKDIR /usr/src/app
+WORKDIR /app
 
 CMD [ "gulp" ]
