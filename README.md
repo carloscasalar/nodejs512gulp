@@ -11,21 +11,21 @@ Node JS Docker image with gulp installed and a shared volume
 
 ## Usage
 
-    docker run -it --rm -u "app" --net="host" -v "$PWD":/usr/src/app  carloscastillo/nodejs512gulp
+    docker run -it --rm -u `id -u $USER`:`id -g $USER` --net="host" -v `pwd`:/app  carloscastillo/nodejs512gulp
 
 ### Run `node`
 
-    docker run -it --rm -u "app" --net="host" -v "$PWD":/usr/src/app  carloscastillo/nodejs512gulp node
+    docker run -it --rm -u `id -u $USER`:`id -g $USER` --net="host" -v `pwd`:/app  carloscastillo/nodejs512gulp node
 
 ### Run `npm`
 
-    docker run -it --rm -u "app" --net="host" -v "$PWD":/usr/src/app  carloscastillo/nodejs512gulp npm
+    docker run -it --rm -u `id -u $USER`:`id -g $USER` --net="host" -v `pwd`:/app  carloscastillo/nodejs512gulp npm
 
 ### Run `gulp`
 
-    docker run -it --rm -u "app" --net="host" -v "$PWD":/usr/src/app  carloscastillo/nodejs512gulp 
+    docker run -it --rm -u `id -u $USER`:`id -g $USER` --net="host" -v `pwd`:/app  carloscastillo/nodejs512gulp 
 
 Run a gulp script, i.e. test:
 
-    docker run -it --rm -u "app" --net="host" -v "$PWD":/usr/src/app  carloscastillo/nodejs512gulp gulp test
+    docker run -it --rm -u `id -u $USER`:`id -g $USER` --net="host" -v `pwd`:/app  carloscastillo/nodejs512gulp gulp test
 
